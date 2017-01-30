@@ -56,6 +56,20 @@ body {
     text-align:center;
 }
 
+.page {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	display: none;
+}
+
+.active { display: block; }
+
 .top {
 	background: #0be878;
 	background: -moz-linear-gradient(top, #0be878 1%, #1add7a 21%, #13be67 100%);

@@ -84,6 +84,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "fr.drangies.cordova.serial": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {},
@@ -690,6 +693,14 @@
             "merges": [
                 "window.StatusBar"
             ]
+        },
+        {
+            "file": "plugins/fr.drangies.cordova.serial/www/serial.js",
+            "id": "fr.drangies.cordova.serial.Serial",
+            "pluginId": "fr.drangies.cordova.serial",
+            "clobbers": [
+                "window.serial"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -713,6 +724,7 @@
         "cordova-plugin-splashscreen": "3.2.2",
         "cordova-plugin-vibration": "2.1.3",
         "cordova-plugin-statusbar": "2.1.3",
-        "cordova-plugin-whitelist": "1.2.2"
+        "cordova-plugin-whitelist": "1.2.2",
+        "fr.drangies.cordova.serial": "0.0.7"
     }
 }

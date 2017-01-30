@@ -602,6 +602,14 @@ module.exports = [
         "merges": [
             "window.StatusBar"
         ]
+    },
+    {
+        "file": "plugins/fr.drangies.cordova.serial/www/serial.js",
+        "id": "fr.drangies.cordova.serial.Serial",
+        "pluginId": "fr.drangies.cordova.serial",
+        "clobbers": [
+            "window.serial"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -627,7 +635,8 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-vibration": "2.1.3",
     "cordova-plugin-statusbar": "2.1.3",
-    "cordova-plugin-whitelist": "1.2.2"
+    "cordova-plugin-whitelist": "1.2.2",
+    "fr.drangies.cordova.serial": "0.0.7"
 }
 // BOTTOM OF METADATA
 });

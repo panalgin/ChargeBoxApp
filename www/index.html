@@ -44,86 +44,61 @@
 
 <body>
     <div class="app">
-		<div id="home" class="page active">
+		<div id="home" class="page">
 			<div class="top">
 				<img class="logo" src="img/logo.png" />
 			</div>
-			<div class="slide-box">
-				<img class="slide" src="img/main-slide-1.png" />
+			<div class="preview">
+				<img src="img/chargebox-preview.png" />
+				<span>Profesyonel Şarj Hizmetleri</span>
 			</div>
-			<div class="coin">
-			
+			<div class="banner">
+				<img srC="img/coin.png" />
+				<p>Merhaba! Şarj işlemine başlayabilmek için önce 1 TL ödeme yapmalısınız.</p>
 			</div>
-			<div class="light-1">
-			
+			<div class="recover">
+				<p>Şarj edilmiş cihazınızı teslim almak için aşağıdaki tuşa dokunun</p>
+				<img src="img/recover.png" />
+				<div class="btn-hold">
+					<button id="recover-button">Telefonu Teslim Al</button>
+				</div>
+			</div>
+		</div>
+		<div id="paid" class="page">
+			<div class="top">
+				<img class="logo" src="img/logo.png" />
+			</div>
+			<div class="thanks">
+				<img src="img/coin-paid.png" />
+				<p>Ödeme yaptığınız için teşekkür ederiz.</p>
+				<img class="tick" src="img/thanks-tick.png" />
+			</div>
+			<div class="period">
+				<img src="img/period.png" />
+				<p>20 DAKİKA BOYUNCA SARJ İŞLEMİ DEVAM EDECEKTİR. <br />BU SÜRE ZARFINDA CİHAZINIZ ÖZELLİĞİNE GÖRE <span>%7 İLE %20</span> ARASINDA ŞARJ OLACAKTIR.</p>
 			</div>
 		</div>
 		<div id="cabinets" class="page">
 			<div class="top">
 				<img class="logo" src="img/logo.png" />
 			</div>
-			<input type="text" />
-			<input type="button" />
+		</div>
+		<div id="debugHold" class="page active">
+		
 		</div>
     </div>
+	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         app.initialize();
 		
 		$(document).ready(function() {
-			$("div.coin").click(function() {
+			$("button#recover-button").click(function() {
 				console.log("clicked");
 				$("div.page").removeClass("active").hide();
-				$("div#cabinets").addClass("active").show();
+				$("div#paid").addClass("active").show();
 			});
-			
-			var open = false;
-			var str = '';
-			var lastRead = new Date();
-
-			var errorCallback = function (message) {
-				alert('Error: ' + message);
-			};
-
-			serial.requestPermission(
-				function(successMessage) {
-					serial.open( {baudRate: 9600, sleepOnPause: false},
-						function(successMessage) {
-							open = true;
-							serial.registerReadCallback(
-								function success(data){
-									var view = new Uint8Array(data);
-									
-									if(view.length >= 1) {
-										for(var i=0; i < view.length; i++) {
-											console.log(view);
-											
-											if(view[i] == 13) {
-												var now = new Date();
-												//delta.innerText = now - lastRead;
-												lastRead = now;
-												var value = parseInt(str);
-												//pot.innerText = value;
-												str = '';
-											}
-											else {
-												var temp_str = String.fromCharCode(view[i]);
-												var str_esc = escape(temp_str);
-												str += unescape(str_esc);
-											}
-										}
-									}
-								},
-								errorCallback
-							);
-						},
-						errorCallback
-					);
-				},
-				errorCallback
-			);
 		});
     </script>
 </body>
